@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Egg Production | Poultry Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Poultry Management System</h1>
+        <p>Monitor daily egg production.</p>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="flocks.html">Flocks</a></li>
+                <li><a href="feed.html">Feed Management</a></li>
+                <li><a href="eggs.html" aria-current="page">Egg Production</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="expenses.html">Expenses</a></li>
+                <li><a href="records.html">Farm Records</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="form-section">
+            <h2>Record Egg Production</h2>
+
+            <form id="eggForm">
+
+                <label for="eggFlock">Flock</label>
+                <select id="eggFlock" required></select>
+
+                <label for="eggsCollected">Eggs Collected</label>
+                <input type="number" id="eggsCollected" min="1" required>
+
+                <label for="eggDate">Date</label>
+                <input type="date" id="eggDate" required>
+
+                <button type="submit">Save Egg Record</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Poultry Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>

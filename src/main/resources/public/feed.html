@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feed Management | Poultry Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Poultry Management System</h1>
+        <p>Monitor poultry feed usage.</p>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="flocks.html">Flocks</a></li>
+                <li><a href="feed.html" aria-current="page">Feed Management</a></li>
+                <li><a href="eggs.html">Egg Production</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="expenses.html">Expenses</a></li>
+                <li><a href="records.html">Farm Records</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="form-section">
+            <h2>Record Feed Usage</h2>
+
+            <form id="feedForm">
+
+                <label for="feedFlock">Flock</label>
+                <select id="feedFlock" required></select>
+
+                <label for="feedType">Feed Type</label>
+                <input type="text" id="feedType" required>
+
+                <label for="bagsPurchased">Bags Purchased</label>
+                <input type="number" id="bagsPurchased" min="0" required>
+
+                <label for="bagsUsed">Bags Used</label>
+                <input type="number" id="bagsUsed" min="0" required>
+
+                <label for="feedDate">Date</label>
+                <input type="date" id="feedDate" required>
+
+                <button type="submit">Save Feed Record</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Poultry Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>

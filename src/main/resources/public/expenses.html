@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expenses | Poultry Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Poultry Management System</h1>
+        <p>Track your farm expenses.</p>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="flocks.html">Flocks</a></li>
+                <li><a href="feed.html">Feed Management</a></li>
+                <li><a href="eggs.html">Egg Production</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="expenses.html" aria-current="page">Expenses</a></li>
+                <li><a href="records.html">Farm Records</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="form-section">
+            <h2>Record Expense</h2>
+
+            <form id="expenseForm">
+
+                <label for="expenseDescription">Description</label>
+                <input type="text" id="expenseDescription" required>
+
+                <label for="expenseAmount">Amount (K)</label>
+                <input type="number" id="expenseAmount" min="0.01" step="0.01" required>
+
+                <label for="expenseDate">Date</label>
+                <input type="date" id="expenseDate" required>
+
+                <button type="submit">Save Expense</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Poultry Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>

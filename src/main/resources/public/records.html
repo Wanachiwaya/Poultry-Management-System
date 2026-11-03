@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farm Records | Poultry Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Poultry Management System</h1>
+        <p>View and manage your farm records.</p>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="flocks.html">Flocks</a></li>
+                <li><a href="feed.html">Feed Management</a></li>
+                <li><a href="eggs.html">Egg Production</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="expenses.html">Expenses</a></li>
+                <li><a href="records.html" aria-current="page">Farm Records</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="records-section">
+            <h2>Farm Records</h2>
+
+            <section class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Record ID</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recordsTable"></tbody>
+                </table>
+            </section>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Poultry Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>

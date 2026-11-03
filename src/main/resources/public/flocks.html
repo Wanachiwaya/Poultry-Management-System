@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flock Management | Poultry Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Poultry Management System</h1>
+        <p>Manage your poultry flocks.</p>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="flocks.html" aria-current="page">Flocks</a></li>
+                <li><a href="feed.html">Feed Management</a></li>
+                <li><a href="eggs.html">Egg Production</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="expenses.html">Expenses</a></li>
+                <li><a href="records.html">Farm Records</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="form-section">
+            <h2>Register New Flock</h2>
+
+            <form id="flockForm">
+
+                <label for="flockType">Flock Type</label>
+                <select id="flockType" required>
+                    <option value="Broiler">Broiler</option>
+                    <option value="Layer">Layer</option>
+                </select>
+
+                <label for="flockQuantity">Number of Birds</label>
+                <input type="number" id="flockQuantity" min="1" required>
+
+                <label for="flockDate">Acquisition Date</label>
+                <input type="date" id="flockDate" required>
+
+                <button type="submit">Register Flock</button>
+
+            </form>
+        </section>
+
+        <section class="records-section">
+            <h2>Registered Flocks</h2>
+
+            <section class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Flock ID</th>
+                            <th>Type</th>
+                            <th>Birds</th>
+                            <th>Acquired</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="flocksTable"></tbody>
+                </table>
+            </section>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Poultry Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>

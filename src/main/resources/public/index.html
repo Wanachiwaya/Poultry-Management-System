@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Poultry Management System. </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1> Poultry Management System.</h1>
+        <p>Manage your poultry farm with ease.</p>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Dashboard</a></li>
+                <li><a href="flocks.html">Flocks</a></li>
+                <li><a href="feed.html">Feed Management</a></li>
+                <li><a href="eggs.html">Egg Production</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="expenses.html">Expenses</a></li>
+                <li><a href="records.html">Farm Records</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section aria-labelledby="overview-heading">
+            <h2 id="overview-heading">Farm Overview</h2>
+
+            <section class="dashboard">
+
+                <article class="card">
+                    <h3>Total Flocks</h3>
+                    <p id="totalFlocks">0</p>
+                </article>
+
+                <article class="card">
+                    <h3>Total Birds</h3>
+                    <p id="totalBirds">0</p>
+                </article>
+
+                <article class="card">
+                    <h3>Eggs Collected</h3>
+                    <p id="totalEggs">0</p>
+                </article>
+
+                <article class="card">
+                    <h3>Feed Bags Used</h3>
+                    <p id="feedUsed">0</p>
+                </article>
+
+                <article class="card">
+                    <h3>Total Sales</h3>
+                    <p id="totalSales">K0.00</p>
+                </article>
+
+                <article class="card">
+                    <h3>Total Expenses</h3>
+                    <p id="totalExpenses">K0.00</p>
+                </article>
+
+                <article class="card">
+                    <h3>Profit / Loss</h3>
+                    <p id="profit">K0.00</p>
+                </article>
+
+            </section>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Poultry Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>
