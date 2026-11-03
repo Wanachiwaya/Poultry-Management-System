@@ -1,0 +1,77 @@
+{
+  "flocks" : [ {
+    "id" : "2",
+    "type" : "Layer",
+    "quantity" : 20,
+    "acquisitionDate" : "2026-11-03"
+  }, {
+    "id" : "3",
+    "type" : "Layer",
+    "quantity" : 10,
+    "acquisitionDate" : "2026-11-03"
+  } ],
+  "records" : [ {
+    "recordType" : "feed",
+    "id" : "5",
+    "flockId" : "2",
+    "feedType" : "Chicken",
+    "bagsPurchased" : 4,
+    "bagsUsed" : 3,
+    "date" : "2026-11-03",
+    "summary" : "Chicken feed: 4 bags purchased, 3 bags used",
+    "amount" : 3.0
+  }, {
+    "recordType" : "feed",
+    "id" : "6",
+    "flockId" : "3",
+    "feedType" : "Chicken",
+    "bagsPurchased" : 2,
+    "bagsUsed" : 1,
+    "date" : "2026-11-03",
+    "summary" : "Chicken feed: 2 bags purchased, 1 bags used",
+    "amount" : 1.0
+  }, {
+    "recordType" : "eggs",
+    "id" : "7",
+    "flockId" : "2",
+    "eggsCollected" : 10,
+    "date" : "2026-11-03",
+    "summary" : "10 eggs collected",
+    "amount" : 10.0
+  }, {
+    "recordType" : "eggs",
+    "id" : "8",
+    "flockId" : "3",
+    "eggsCollected" : 5,
+    "date" : "2026-11-03",
+    "summary" : "5 eggs collected",
+    "amount" : 5.0
+  }, {
+    "recordType" : "sale",
+    "id" : "9",
+    "itemType" : "Eggs",
+    "quantity" : 10,
+    "unitPrice" : 85.0,
+    "date" : "2026-11-03",
+    "summary" : "10 Eggs sold",
+    "amount" : 850.0
+  }, {
+    "recordType" : "sale",
+    "id" : "10",
+    "itemType" : "Broiler Chickens",
+    "quantity" : 3,
+    "unitPrice" : 150.0,
+    "date" : "2026-11-03",
+    "summary" : "3 Broiler Chickens sold",
+    "amount" : 450.0
+  }, {
+    "recordType" : "expense",
+    "id" : "11",
+    "description" : "We used four bags ",
+    "amount" : 1500.0,
+    "date" : "2026-11-03",
+    "summary" : "We used four bags "
+  } ],
+  "nextFlockId" : 4,
+  "nextRecordId" : 12
+}
