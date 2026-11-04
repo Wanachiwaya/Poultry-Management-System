@@ -35,9 +35,7 @@ public class DataStorage {
         try {
             file.getParentFile().mkdirs();
 
-            mapper.writeValue(file, new SavedData(
-                    manager.getFlocks(), manager.getRecords(),
-                    manager.getNextFlockId(), manager.getNextRecordId()));
+            mapper.writeValue(file, new SavedData(manager.getFlocks(), manager.getRecords()));
 
         } catch (IOException e) {
             throw new RuntimeException("Could not save farm data.", e);
@@ -54,7 +52,7 @@ public class DataStorage {
         try {
             SavedData data = mapper.readValue(file, SavedData.class);
 
-            manager.loadData(data.flocks, data.records, data.nextFlockId, data.nextRecordId);
+            manager.loadData(data.flocks, data.records);
 
         } catch (IOException e) {
             throw new RuntimeException("Could not load farm data from " + file.getPath(), e);
@@ -71,18 +69,13 @@ public class DataStorage {
 
         public List<Flock> flocks;
         public List<FarmRecord> records;
-        public int nextFlockId;
-        public int nextRecordId;
 
         public SavedData() {
         }
 
-        public SavedData(List<Flock> flocks, List<FarmRecord> records,
-                int nextFlockId, int nextRecordId) {
+        public SavedData(List<Flock> flocks, List<FarmRecord> records) {
             this.flocks = flocks;
             this.records = records;
-            this.nextFlockId = nextFlockId;
-            this.nextRecordId = nextRecordId;
         }
     }
 }
