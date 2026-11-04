@@ -35,7 +35,11 @@ public class DataStorage {
         try {
             file.getParentFile().mkdirs();
 
-            mapper.writeValue(file, new SavedData(manager.getFlocks(), manager.getRecords()));
+            mapper.writeValue(file, new SavedData(
+                    manager.getFlocks(),
+                    manager.getRecords(),
+                    manager.getNextFlockId(),
+                    manager.getNextRecordId()));
 
         } catch (IOException e) {
             throw new RuntimeException("Could not save farm data.", e);
@@ -52,7 +56,20 @@ public class DataStorage {
         try {
             SavedData data = mapper.readValue(file, SavedData.class);
 
-            manager.loadData(data.flocks, data.records);
+            List<Flock> flocks = data.flocks != null ? data.flocks : List.of();
+            List<FarmRecord> records = data.records != null ? data.records : List.of();
+
+            // Old save files have no counters (they read as 0),
+            // so work them out from the saved data instead
+            int nextFlockId = data.nextFlockId > 0
+                    ? data.nextFlockId
+                    : highestId(flocks.stream().map(Flock::getId).toList()) + 1;
+
+            int nextRecordId = data.nextRecordId > 0
+                    ? data.nextRecordId
+                    : highestId(records.stream().map(FarmRecord::getId).toList()) + 1;
+
+            manager.loadData(flocks, records, nextFlockId, nextRecordId);
 
         } catch (IOException e) {
             throw new RuntimeException("Could not load farm data from " + file.getPath(), e);
@@ -64,18 +81,39 @@ public class DataStorage {
         return mapper;
     }
 
+    // Highest numeric ID in a list of ID strings (0 if the list is empty)
+    private int highestId(List<String> ids) {
+
+        int max = 0;
+
+        for (String id : ids) {
+            try {
+                max = Math.max(max, Integer.parseInt(id));
+            } catch (NumberFormatException ignored) {
+                // skip IDs that are not numbers
+            }
+        }
+
+        return max;
+    }
+
     // Groups everything that is saved in the file
     public static class SavedData {
 
         public List<Flock> flocks;
         public List<FarmRecord> records;
+        public int nextFlockId;
+        public int nextRecordId;
 
         public SavedData() {
         }
 
-        public SavedData(List<Flock> flocks, List<FarmRecord> records) {
+        public SavedData(List<Flock> flocks, List<FarmRecord> records,
+                int nextFlockId, int nextRecordId) {
             this.flocks = flocks;
             this.records = records;
+            this.nextFlockId = nextFlockId;
+            this.nextRecordId = nextRecordId;
         }
     }
 }
