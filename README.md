@@ -56,6 +56,23 @@ poultry-management-system/
     └── resources/public/        the web pages (one HTML file per page), style.css, app.js
 ```
 
+### Main classes
+
+| Class | Responsibility |
+| --- | --- |
+| `Flock` | A group of chickens: ID, type (broiler or layer), number of birds, acquisition date |
+| `FarmRecord` (interface) | What every record can do: `getId()`, `getDate()`, `getSummary()`, `getAmount()` |
+| `FeedRecord` | Feed bags purchased and used for a flock (implements `FarmRecord`) |
+| `EggProduction` | Eggs collected from a flock on a day (implements `FarmRecord`) |
+| `Sale` | A sale of eggs or chickens: quantity and unit price (implements `FarmRecord`) |
+| `Expense` | A farm cost: description and amount (implements `FarmRecord`) |
+| `FarmManager` | Keeps the lists of flocks and records, validates them, gives IDs 1, 2, 3 ... and calculates totals and profit |
+| `FarmController` | The Javalin REST endpoints (GET, POST, PUT, DELETE) |
+| `DataStorage` | Saves and loads the data in a JSON file |
+| `InvalidRecordException`, `RecordNotFoundException` | Custom exceptions for bad input (HTTP 400) and missing items (HTTP 404) |
+
+**OOP ideas used:** encapsulation (private fields with getters and setters), an interface (`FarmRecord`) implemented by four classes, polymorphism (`getAmount()` and `getSummary()` behave differently for each record type), custom exceptions, and collections (`ArrayList`).
+
 ## 5. How to Run the Project
 
 1. Install Java 17 or later and Apache Maven.
@@ -96,7 +113,7 @@ Errors are returned as JSON, e.g. `{"error": "Date is required."}`, with status 
 
 Farm information is stored in `data/poultry-data.json`, created automatically the first time you save something. Delete this file to start with a clean farm.
 
-**IDs:** flocks are numbered 1, 2, 3 ... and records are numbered 1, 2, 3 ... separately. The server assigns the numbers, and they are never reused after a delete (the next numbers are saved in the data file).
+**IDs:** flocks are numbered 1, 2, 3 ... and records are numbered 1, 2, 3 ... separately. The server gives a new item the highest existing number plus 1, so the first item is 1 and the numbering starts again at 1 when the list is empty.
 
 ## 8. Project Objective
 
